@@ -50,7 +50,7 @@ pages:
 # Lumina supports multiple built-in styles and palettes. Try: modern, minimal, elegant, aurora, ocean, classic.
 theme:
   cursor_spotlight: false
-  style: "modern"
+  style: "elegant"
   palette: "default"
   random_theme: false
   avatars:
