@@ -1,0 +1,6 @@
+repositories:
+  - name: "HDS-Spring2025"
+    description: "High-Dimensional Statistics course materials."
+    url: "https://github.com/alirezamirrokni/HDS-Spring2025"
+    language: "Python / LaTeX"
+    stars: 0

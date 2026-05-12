@@ -1,0 +1,37 @@
+education:
+  - degree: "B.Sc. in Computer Engineering"
+    institution: "Sharif University of Technology"
+    year: "Final-year undergraduate"
+    description: "Research interests: foundations and reliability of machine learning systems, statistical learning, optimization, interpretability, and multimodal reasoning."
+
+experience:
+  - title: "Research Intern"
+    organization: "Institute of Science and Technology Austria (ISTA), Mondelli Group"
+    start_date: "Summer 2025"
+    end_date: "Summer 2025"
+    description: "Worked with Prof. Marco Mondelli on the theoretical analysis of regularization in performative learning."
+  - title: "Research Collaborator"
+    organization: "Prof. Hossein Esfandiari"
+    start_date: "Prior"
+    end_date: ""
+    description: "Worked on problems in optimization, learning, and resource-aware decision making."
+  - title: "Research Intern"
+    organization: "QCRI, LLM Lab"
+    start_date: "Prior"
+    end_date: ""
+    description: "Worked with Prof. Ehsaneddin Asgari on research related to modern machine learning and language models."
+
+skills:
+  - category: "Research Areas"
+    items: ["Theoretical ML", "Statistical Learning", "Optimization", "Interpretability", "Multimodal Reasoning"]
+  - category: "Machine Learning"
+    items: ["PyTorch", "Transformers", "Vision-Language Models", "LLMs", "Causal Analysis"]
+  - category: "Tools"
+    items: ["Python", "LaTeX", "Git", "Academic Writing"]
+
+awards: []
+
+service:
+  - role: "Member, scoring committee examinations"
+    organization: "Iranian National Artificial Intelligence Committee"
+    years: "Service"

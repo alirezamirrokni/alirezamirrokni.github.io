@@ -1,0 +1,83 @@
+---
+import BaseLayout from '@components/layout/BaseLayout.astro';
+import { getConfig } from '@lib/config';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'yaml';
+
+const config = getConfig();
+if (!config.pages.teaching) return Astro.redirect('/404');
+
+let teaching: any = { head_ta: [], ta_summary: { courses: [] }, service: [] };
+try {
+  const coursesPath = path.resolve(process.cwd(), 'src/content/teaching/courses.yml');
+  teaching = yaml.parse(fs.readFileSync(coursesPath, 'utf-8'));
+} catch {}
+---
+
+<BaseLayout title="Teaching" description="Teaching and TA experience">
+  <div class="animate-on-scroll">
+    <div class="page-header">
+      <h1 class="text-3xl font-bold">Teaching</h1>
+      <p class="text-[var(--color-text-secondary)] mt-2">Teaching and non-paid TA experience</p>
+    </div>
+  </div>
+
+  <section class="mb-12 animate-on-scroll">
+    <h2 class="text-xl font-semibold mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+      Head TA
+    </h2>
+    <div class="space-y-4">
+      {teaching.head_ta?.map((course: any) => (
+        <div class="p-5 rounded-xl bg-[var(--color-card-bg)] border border-[var(--color-border)] card-hover">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+            <div>
+              <h3 class="font-medium text-lg">{course.title}</h3>
+              <p class="text-sm text-[var(--color-text-secondary)] mt-1">Head TA · {course.instructor}</p>
+            </div>
+            {course.links?.length > 0 && (
+              <div class="flex flex-wrap gap-2 shrink-0">
+                {course.links.map((link: any) => (
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-[var(--color-border)]/50 hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-accent)] transition-colors">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mb-12 animate-on-scroll">
+    <h2 class="text-xl font-semibold mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h10M4 18h8"/></svg>
+      Teaching Assistant
+    </h2>
+    <div class="p-5 rounded-xl bg-[var(--color-card-bg)] border border-[var(--color-border)]">
+      <div class="flex flex-wrap gap-2">
+        {teaching.ta_summary?.courses?.map((course: string) => (
+          <span class="px-3 py-1 rounded-full text-sm bg-[var(--color-border)]/50 text-[var(--color-text-secondary)]">{course}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {teaching.service?.length > 0 && (
+    <section class="animate-on-scroll">
+      <h2 class="text-xl font-semibold mb-6 flex items-center gap-2">
+        <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Service
+      </h2>
+      <div class="space-y-3">
+        {teaching.service.map((item: string) => (
+          <div class="p-5 rounded-xl bg-[var(--color-card-bg)] border border-[var(--color-border)] card-hover">
+            <p class="text-[var(--color-text-secondary)]">{item}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

@@ -1,0 +1,45 @@
+head_ta:
+  - title: "High-Dimensional Statistics"
+    instructor: "Dr. Amir Najafi"
+    links:
+      - label: "GitHub"
+        url: "https://github.com/alirezamirrokni/HDS-Spring2025"
+  - title: "Convex Optimization"
+    instructor: "Dr. Mohammad Amir Dastgheib"
+    links: []
+  - title: "Machine Learning"
+    instructor: "Dr. Ali Sharifi Zarchi"
+    links:
+      - label: "Website"
+        url: "https://www.sharifml.ir/"
+      - label: "GitHub"
+        url: "https://github.com/SharifiZarchi/Introduction_to_Machine_Learning"
+  - title: "Probability & Statistics"
+    instructor: "Dr. Ali Sharifi Zarchi"
+    links:
+      - label: "Website"
+        url: "https://www.sharifps.ir/"
+      - label: "GitHub"
+        url: "https://github.com/SharifiZarchi/Probability_Statistics"
+  - title: "Probability & Statistics"
+    instructor: "Dr. Amir Najafi"
+    links: []
+
+ta_summary:
+  title: "Teaching Assistant"
+  courses:
+    - "High-Dimensional Statistics"
+    - "Theory of Machine Learning"
+    - "Stochastic Processes"
+    - "Machine Learning"
+    - "Artificial Intelligence (2×)"
+    - "Linear Algebra (5×)"
+    - "Probability & Statistics (2×)"
+    - "Convex Optimization"
+    - "Algorithm Design"
+    - "Data Structures & Algorithms (2×)"
+    - "Theory of Computation (2×)"
+    - "Discrete Structures"
+
+service:
+  - "Member, Iranian National Artificial Intelligence Committee, scoring committee examinations."
