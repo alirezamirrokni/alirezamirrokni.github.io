@@ -9,18 +9,51 @@ interface Props {
 
 const { pub, authorName } = Astro.props;
 
-function formatAuthors(authors: string[], name: string): string {
+function formatAuthors(
+  authors: string[],
+  name: string,
+  equalContribution: string[] = []
+): string {
   const parts = name.trim().split(/\s+/);
   const firstName = parts[0] || '';
   const lastName = parts[parts.length - 1] || '';
+
+  const equalSet = new Set(equalContribution.map(a => a.trim().toLowerCase()));
+
   return authors.map(a => {
-    const aParts = a.trim().split(/\s+/);
+    const cleanAuthor = a.trim();
+    const aParts = cleanAuthor.split(/\s+/);
     const aFirst = aParts[0] || '';
     const aLast = aParts[aParts.length - 1] || '';
     const lastMatch = aLast === lastName;
     const firstMatch = aFirst === firstName || (aFirst.length <= 2 && aFirst[0] === firstName[0]);
-    return (lastMatch && firstMatch) ? `<strong class="text-[var(--color-text)]">${a}</strong>` : a;
+    const isMe = lastMatch && firstMatch;
+    const isEqual = equalSet.has(cleanAuthor.toLowerCase());
+
+    const authorText = isMe
+      ? `<strong class="text-[var(--color-text)]">${cleanAuthor}</strong>`
+      : cleanAuthor;
+
+    return `${authorText}${isEqual ? '<sup>*</sup>' : ''}`;
   }).join(', ');
+}
+
+function formatAuthorNotes(pub: Publication): string[] {
+  const notes: string[] = [];
+
+  if (pub.equalContribution && pub.equalContribution.length > 0) {
+    notes.push('* Equal contribution.');
+  }
+
+  if (pub.authorOrder === 'alpha') {
+    notes.push('α Authors listed alphabetically.');
+  }
+
+  if (pub.authorOrder === 'beta') {
+    notes.push('β Special author-order note.');
+  }
+
+  return notes;
 }
 ---
 
@@ -42,7 +75,13 @@ function formatAuthors(authors: string[], name: string): string {
         ) : pub.title}
       </h3>
 
-      <p class="mt-1.5 text-sm text-[var(--color-text-secondary)]" set:html={formatAuthors(pub.authors, authorName)} />
+      <p class="mt-1.5 text-sm text-[var(--color-text-secondary)]" set:html={formatAuthors(pub.authors, authorName, pub.equalContribution)} />
+
+      {formatAuthorNotes(pub).length > 0 && (
+        <p class="mt-1 text-xs text-[var(--color-text-secondary)] italic">
+          {formatAuthorNotes(pub).join('  ')}
+        </p>
+      )}
 
       <div class="mt-2 flex flex-wrap items-center gap-2">
         <VenueBadge type={pub.venueType} />

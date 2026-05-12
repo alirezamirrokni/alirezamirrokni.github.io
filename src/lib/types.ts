@@ -12,6 +12,8 @@ export interface Publication {
   video?: string;
   slides?: string;
   abstract?: string;
+  equalContribution?: string[];
+  authorOrder?: 'alpha' | 'beta' | 'none';
   selected?: boolean;
   preview?: string;
   bibtexType: string;

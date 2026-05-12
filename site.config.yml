@@ -13,7 +13,7 @@ profile:
   affiliation: "Computer Engineering"
   university: "Sharif University of Technology"
   email: "alirezamirrokni28@gmail.com"
-  avatar: "/images/avatar.svg"
+  avatar: "/images/alireza.png"
   bio: "I am a final-year undergraduate student in Computer Engineering at Sharif University of Technology."
   bio_short: "Machine learning foundations, reliability, interpretability, and multimodal reasoning."
 
@@ -54,7 +54,7 @@ theme:
   palette: "default"
   random_theme: false
   avatars:
-    - "/images/avatar.svg"
+    - "/images/alireza.png"
 
 cv:
   hide_pdf_download: true

@@ -15,18 +15,50 @@ try {
   if (selectedPubs.length === 0) selectedPubs = allPubs.slice(0, 5);
 } catch {}
 
-function boldAuthorName(authors: string[], authorName: string): string {
-  const parts = authorName.trim().split(/\s+/);
-  const firstName = parts[0] || '';
-  const lastName = parts[parts.length - 1] || '';
-  return authors.map(a => {
-    const aParts = a.trim().split(/\s+/);
-    const aFirst = aParts[0] || '';
-    const aLast = aParts[aParts.length - 1] || '';
-    const lastMatch = aLast === lastName;
-    const firstMatch = aFirst === firstName || (aFirst.length <= 2 && aFirst[0] === firstName[0]);
-    return (lastMatch && firstMatch) ? `<strong>${a}</strong>` : a;
+function normalizeName(name: string): string {
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ');
+}
+
+function formatAuthors(
+  authors: string[],
+  authorName: string,
+  equalContribution: string[] = []
+): string {
+  const equalSet = new Set(equalContribution.map(normalizeName));
+  const myName = normalizeName(authorName);
+
+  return authors.map((author) => {
+    const normalizedAuthor = normalizeName(author);
+    const isMe = normalizedAuthor === myName || normalizedAuthor.includes('mirrokni');
+    const isEqual = equalSet.has(normalizedAuthor);
+
+    const displayedAuthor = isMe
+      ? `<strong class="text-[var(--color-text)]">${author}</strong>`
+      : author;
+
+    return `${displayedAuthor}${isEqual ? '<sup>*</sup>' : ''}`;
   }).join(', ');
+}
+
+function formatAuthorNotes(pub: any): string[] {
+  const notes: string[] = [];
+
+  if (pub.equalContribution && pub.equalContribution.length > 0) {
+    notes.push('* Equal contribution.');
+  }
+
+  if (pub.authorOrder === 'alpha') {
+    notes.push('α Authors listed alphabetically.');
+  }
+
+  if (pub.authorOrder === 'beta') {
+    notes.push('β Special author-order note.');
+  }
+
+  return notes;
 }
 
 const venueStyles: Record<string, { bg: string; text: string; dot: string }> = {
@@ -57,7 +89,13 @@ const venueStyles: Record<string, { bg: string; text: string; dot: string }> = {
                 <a href={pub.pdf} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-accent)]">{pub.title}</a>
               ) : pub.title}
             </h3>
-            <p class="mt-1 text-sm text-[var(--color-text-secondary)]" set:html={boldAuthorName(pub.authors, config.publications.author_name)} />
+            <p class="mt-1 text-sm text-[var(--color-text-secondary)]" set:html={formatAuthors(pub.authors, config.publications.author_name, pub.equalContribution)} />
+
+            {formatAuthorNotes(pub).length > 0 && (
+              <p class="mt-1 text-xs text-[var(--color-text-secondary)] italic">
+                {formatAuthorNotes(pub).join('  ')}
+              </p>
+            )}
             <div class="mt-2 flex flex-wrap items-center gap-2">
               <span
                 class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold"

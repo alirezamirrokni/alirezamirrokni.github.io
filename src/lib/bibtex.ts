@@ -34,6 +34,10 @@ export function parseBibTeX(bibtex: string): Publication[] {
       doi: fields.doi, url: fields.url, pdf: fields.pdf, code: fields.code,
       video: fields.video, slides: fields.slides,
       abstract: fields.abstract ? cleanTeX(fields.abstract) : undefined,
+      equalContribution: fields.equal ? parseAuthors(fields.equal) : [],
+      authorOrder: ['alpha', 'beta', 'none'].includes(fields.authororder)
+        ? fields.authororder as 'alpha' | 'beta' | 'none'
+        : undefined,
       selected: fields.selected === 'true' || fields.selected === 'yes',
       preview: fields.preview || undefined,
       bibtexType,
