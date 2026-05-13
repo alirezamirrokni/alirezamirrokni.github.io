@@ -58,18 +58,23 @@ experience:
   
 awards:
   - title: "Scientific Internship grant"
+    organization: "École polytechnique fédérale de Lausanne (EPFL)"
+    year: "2026"
+    description: ""
+
+  - title: "Scientific Internship grant"
     organization: "Institute of Science and Technology Austria (ISTA)"
-    year: ""
+    year: "2025"
     description: ""
 
   - title: "Ranked 28th among 150,000 students"
     organization: "Iranian National University Entrance Exam"
-    year: ""
+    year: "2021"
     description: "Top 0.02%."
 
   - title: "Gold medal, 2×"
     organization: "International Scientific League of PAYA"
-    year: ""
+    year: "2019 & 2020"
     description: "Mathematics & Physics."
 
 service:
