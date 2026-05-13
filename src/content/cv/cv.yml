@@ -72,9 +72,14 @@ awards:
     year: "2021"
     description: "Top 0.02%."
 
-  - title: "Gold medal, 2×"
+  - title: "Gold medal"
     organization: "International Scientific League of PAYA"
     year: "2020"
+    description: "Mathematics & Physics."
+
+  - title: "Gold medal"
+    organization: "International Scientific League of PAYA"
+    year: "2019"
     description: "Mathematics & Physics."
 
 service:
