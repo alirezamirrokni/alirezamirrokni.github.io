@@ -1,9 +1,17 @@
 ---
+interface Advisor {
+  name: string;
+  url: string;
+}
+
 interface TimelineItem {
   title: string;
   subtitle: string;
   date: string;
   description?: string;
+  advisors?: Advisor[];
+  logo?: string;
+  logoAlt?: string;
 }
 
 interface Props {
@@ -11,6 +19,12 @@ interface Props {
 }
 
 const { items } = Astro.props;
+
+function formatAdvisorJoin(index: number, total: number): string {
+  if (index < total - 2) return ', ';
+  if (index === total - 2) return ' and ';
+  return '';
+}
 ---
 
 <div class="relative">
@@ -21,15 +35,50 @@ const { items } = Astro.props;
     {items.map((item) => (
       <div class="relative pl-8">
         <!-- Dot -->
-        <div class="absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 border-[var(--color-accent)] bg-[var(--color-bg)]"></div>
+        <div class="absolute left-0 top-2 h-[15px] w-[15px] rounded-full border-2 border-[var(--color-accent)] bg-[var(--color-bg)]"></div>
 
-        <div>
-          <h3 class="font-medium">{item.title}</h3>
-          <p class="text-sm text-[var(--color-accent)]">{item.subtitle}</p>
-          <p class="text-xs font-mono text-[var(--color-text-secondary)] mt-0.5">{item.date}</p>
-          {item.description && (
-            <p class="mt-2 text-sm text-[var(--color-text-secondary)]">{item.description}</p>
+        <div class="flex gap-4">
+          {item.logo && (
+            <div class="shrink-0 pt-0.5">
+              <div class="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-[var(--color-border)] bg-white p-1.5 shadow-sm">
+                <img
+                  src={item.logo}
+                  alt={item.logoAlt || item.subtitle}
+                  class="h-full w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           )}
+
+          <div class="min-w-0 flex-1">
+            <h3 class="font-medium">{item.title}</h3>
+            <p class="text-sm text-[var(--color-accent)]">{item.subtitle}</p>
+            <p class="mt-0.5 font-mono text-xs text-[var(--color-text-secondary)]">{item.date}</p>
+
+            {item.description && (
+              <p class="mt-2 text-sm text-[var(--color-text-secondary)]">{item.description}</p>
+            )}
+
+            {item.advisors && item.advisors.length > 0 && (
+              <p class="mt-1 text-sm text-[var(--color-text-secondary)]">
+                Advisor{item.advisors.length > 1 ? 's' : ''}:{' '}
+                {item.advisors.map((advisor, index) => (
+                  <>
+                    <a
+                      href={advisor.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[var(--color-accent)] hover:underline"
+                    >
+                      {advisor.name}
+                    </a>
+                    {formatAdvisorJoin(index, item.advisors!.length)}
+                  </>
+                ))}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     ))}

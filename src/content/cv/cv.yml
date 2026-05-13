@@ -1,35 +1,76 @@
 education:
-  - degree: "B.Sc. in Computer Engineering"
+  - degree: "B.Sc. in Computer Engineering • GPA 19.84/20 • Rank 2/201"
     institution: "Sharif University of Technology"
-    year: "Final-year undergraduate"
-    description: "Research interests: foundations and reliability of machine learning systems, statistical learning, optimization, interpretability, and multimodal reasoning."
+    year: "2022 – Present"
+    description: "Final-year undergraduate student in Computer Engineering."
+
+  - degree: "Diploma in Mathematics and Physics • GPA 19.60/20"
+    institution: "Shahid Beheshti High School (NODET)"
+    year: "2018 – 2022"
+    description: "National Organization for Development of Exceptional Talents (NODET)."
 
 experience:
-  - title: "Research Intern"
-    organization: "Institute of Science and Technology Austria (ISTA), Mondelli Group"
-    start_date: "Summer 2025"
-    end_date: "Summer 2025"
-    description: "Worked with Prof. Marco Mondelli on the theoretical analysis of regularization in performative learning."
-  - title: "Research Collaborator"
-    organization: "Prof. Hossein Esfandiari"
-    start_date: "Prior"
-    end_date: ""
-    description: "Worked on problems in optimization, learning, and resource-aware decision making."
-  - title: "Research Intern"
-    organization: "QCRI, LLM Lab"
-    start_date: "Prior"
-    end_date: ""
-    description: "Worked with Prof. Ehsaneddin Asgari on research related to modern machine learning and language models."
+  - title: "Research Assistant"
+    organization: "Sharif Machine Learning Lab (MLL)"
+    start_date: "Jan 2026"
+    end_date: "Present"
+    logo: "/images/logos/sharif-mll.png"
+    logo_alt: "Sharif Machine Learning Lab logo"
+    description: "Research on reliable and interpretable machine learning systems, with a focus on causal attribution and multimodal model analysis."
+    advisors:
+      - name: "Prof. Mahdieh Soleymani Baghshah"
+        url: "https://scholar.google.com/citations?hl=en&user=S1U0KlgAAAAJ"
 
-skills:
-  - category: "Research Areas"
-    items: ["Theoretical ML", "Statistical Learning", "Optimization", "Interpretability", "Multimodal Reasoning"]
-  - category: "Machine Learning"
-    items: ["PyTorch", "Transformers", "Vision-Language Models", "LLMs", "Causal Analysis"]
-  - category: "Tools"
-    items: ["Python", "LaTeX", "Git", "Academic Writing"]
+  - title: "Research Assistant"
+    organization: "Qatar Computing Research Institute (QCRI)"
+    start_date: "Sep 2025"
+    end_date: "Dec 2025"
+    logo: "/images/logos/qcri.png"
+    logo_alt: "QCRI logo"
+    description: "Research on multilingual and multimodal reasoning, including benchmark design and evaluation for modern language and vision-language models."
+    advisors:
+      - name: "Prof. Ehsaneddin Asgari"
+        url: "https://llm-lab.org/ehsan/"
 
-awards: []
+  - title: "Research Assistant"
+    organization: "Institute of Science and Technology Austria (ISTA)"
+    start_date: "Jul 2025"
+    end_date: "Sep 2025"
+    logo: "/images/logos/ista.png"
+    logo_alt: "ISTA logo"
+    description: "Research on the theoretical analysis of optimal regularization in performative learning."
+    advisors:
+      - name: "Prof. Marco Mondelli"
+        url: "https://marcomondelli.com/"
+      - name: "Dr. Edwige Cyffers"
+        url: "https://perso.ens-lyon.fr/edwige.cyffers/"
+
+  - title: "Research Assistant"
+    organization: "Institute for Research in Fundamental Sciences (IPM)"
+    start_date: "Feb 2025"
+    end_date: "May 2025"
+    logo: "/images/logos/ipm.png"
+    logo_alt: "IPM logo"
+    description: "Research on resource-aware learning and budget allocation under unknown value functions in Lipschitz spaces."
+    advisors:
+      - name: "Prof. Hossein Esfandiari"
+        url: "https://sites.google.com/view/hossein-esfandiari"
+  
+awards:
+  - title: "Scientific Internship grant"
+    organization: "Institute of Science and Technology Austria (ISTA)"
+    year: ""
+    description: ""
+
+  - title: "Ranked 28th among 150,000 students"
+    organization: "Iranian National University Entrance Exam"
+    year: ""
+    description: "Top 0.02%."
+
+  - title: "Gold medal, 2×"
+    organization: "International Scientific League of PAYA"
+    year: ""
+    description: "Mathematics & Physics."
 
 service:
   - role: "Member"

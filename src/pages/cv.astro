@@ -86,6 +86,9 @@ try {
         subtitle: e.organization,
         date: e.end_date ? `${e.start_date} — ${e.end_date}` : e.start_date,
         description: e.description,
+        advisors: e.advisors || [],
+        logo: e.logo,
+        logoAlt: e.logo_alt || e.organization,
       }))} />
     </section>
   )}
