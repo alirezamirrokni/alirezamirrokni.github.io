@@ -65,7 +65,7 @@ try {
         <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
         Education
       </h2>
-      <Timeline items={cvData.education.map((e: any) => ({
+     <Timeline items={cvData.education.map((e: any) => ({
         title: e.degree,
         subtitle: e.institution,
         date: e.year,
@@ -97,16 +97,28 @@ try {
   {cvData.awards?.length > 0 && (
     <section class="mb-12 animate-on-scroll">
       <h2 class="text-xl font-semibold mb-6 flex items-center gap-2">
-        <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+        <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+        </svg>
         Awards &amp; Honors
       </h2>
+
       <div class="space-y-3">
         {cvData.awards.map((award: any) => (
           <div class="flex items-start gap-4 p-3 rounded-lg hover:bg-[var(--color-border)]/30 transition-colors">
-            <span class="text-sm font-mono text-[var(--color-text-secondary)] shrink-0 min-w-[3rem]">{award.year}</span>
+            <span class="text-sm font-mono text-[var(--color-text-secondary)] shrink-0 min-w-[3rem]">
+              {award.year}
+            </span>
+
             <div>
               <p class="font-medium">{award.title}</p>
               <p class="text-sm text-[var(--color-text-secondary)]">{award.organization}</p>
+
+              {award.description && (
+                <p class="mt-1 text-sm leading-relaxed text-[var(--color-accent)]/80">
+                  {award.description}
+                </p>
+              )}
             </div>
           </div>
         ))}

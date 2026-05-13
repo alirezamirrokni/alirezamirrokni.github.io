@@ -57,7 +57,9 @@ function formatAdvisorJoin(index: number, total: number): string {
             <p class="mt-0.5 font-mono text-xs text-[var(--color-text-secondary)]">{item.date}</p>
 
             {item.description && (
-              <p class="mt-2 text-sm text-[var(--color-text-secondary)]">{item.description}</p>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--color-accent)]/80">
+                {item.description}
+              </p>
             )}
 
             {item.advisors && item.advisors.length > 0 && (
