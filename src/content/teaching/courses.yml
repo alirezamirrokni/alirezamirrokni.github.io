@@ -5,6 +5,9 @@ head_ta:
       - label: "GitHub"
         url: "https://github.com/alirezamirrokni/HDS-Spring2025"
   - title: "Convex Optimization"
+    instructor: "Dr. Rouhollah Amiri"
+    links: []
+  - title: "Convex Optimization"
     instructor: "Dr. Mohammad Amir Dastgheib"
     links: []
   - title: "Machine Learning"
