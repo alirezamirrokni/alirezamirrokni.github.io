@@ -1,5 +1,5 @@
 education:
-  - degree: "B.Sc. in Computer Engineering • GPA 19.84/20 • Rank 2/201"
+  - degree: "B.Sc. in Computer Engineering • GPA 19.85/20 • Rank 1/201"
     institution: "Sharif University of Technology"
     year: "2022 – Present"
     description: "Final-year undergraduate student in Computer Engineering."
@@ -10,6 +10,17 @@ education:
     description: "National Organization for Development of Exceptional Talents (NODET)."
 
 experience:
+  - title: "Research Assistant"
+    organization: "École polytechnique fédérale de Lausanne (EPFL)"
+    start_date: "Jul 2026"
+    end_date: "Sep 2026"
+    description: "Research on partially informed stochastic optimization and multi-objective optimization."
+    advisors:
+      - name: "Prof. Martin Jaggi"
+        url: "https://people.epfl.ch/martin.jaggi?lang=en"
+      - name: "Dr. El Mahdi Chayti"
+        url: "https://people.epfl.ch/el-mahdi.chayti/?lang=en"
+
   - title: "Research Assistant"
     organization: "Sharif Machine Learning Lab (MLL)"
     start_date: "Jan 2026"
