@@ -19,9 +19,9 @@ experience:
     description: "Research on retrieval-augmented generation (RAG), focusing on context pruning and investigating JEV as a reranker to improve retrieval relevance and context efficiency."
     advisors:
       - name: "Prof. Ebrahim Bagheri"
-        url: "https://ls3lab.com/people/"
+        url: "https://ischool.utoronto.ca/faculty-profile/bagheri-ebrahim/"
       - name: "Dr. Negar Arabzadeh"
-        url: "https://www.negara.me/"
+        url: "https://negara.info/"
 
   - title: "Research Assistant"
     organization: "École polytechnique fédérale de Lausanne (EPFL)"
