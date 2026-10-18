@@ -1,5 +1,5 @@
 ---
-title: "🎉 CAAP accepted to NeurIPS 2026"
+title: "🎉 Paper accepted to NeurIPS 2026"
 date: 2026-09-24
 pinned: true
 ---
