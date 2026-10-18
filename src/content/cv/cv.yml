@@ -11,6 +11,19 @@ education:
 
 experience:
   - title: "Research Assistant"
+    organization: "Laboratory for Systems, Software and Semantics (LS3)"
+    start_date: "Sep 2026"
+    end_date: "Present"
+    logo: "/images/logos/ls3.svg"
+    logo_alt: "LS3 logo"
+    description: "Research on retrieval-augmented generation (RAG), focusing on context pruning and investigating JEV as a reranker to improve retrieval relevance and context efficiency."
+    advisors:
+      - name: "Prof. Ebrahim Bagheri"
+        url: "https://ls3lab.com/people/"
+      - name: "Dr. Negar Arabzadeh"
+        url: "https://www.negara.me/"
+
+  - title: "Research Assistant"
     organization: "École polytechnique fédérale de Lausanne (EPFL)"
     start_date: "Jul 2026"
     end_date: "Sep 2026"
@@ -22,6 +35,19 @@ experience:
         url: "https://people.epfl.ch/martin.jaggi?lang=en"
       - name: "Dr. El Mahdi Chayti"
         url: "https://people.epfl.ch/el-mahdi.chayti/?lang=en"
+
+  - title: "Research Assistant"
+    organization: "University of Pennsylvania (UPenn)"
+    start_date: "Apr 2026"
+    end_date: "Jul 2026"
+    logo: "/images/logos/upenn.jpg"
+    logo_alt: "University of Pennsylvania logo"
+    description: "Research on data selection from human–AI interactions, developing methods to identify model responses most likely to require human editing under limited review budgets."
+    advisors:
+      - name: "Prof. Hamed Hassani"
+        url: "https://www.seas.upenn.edu/~hassani/"
+      - name: "Shayan Kiyani"
+        url: "https://shayankiyani98.github.io/"
 
   - title: "Research Assistant"
     organization: "Sharif Machine Learning Lab (MLL)"
