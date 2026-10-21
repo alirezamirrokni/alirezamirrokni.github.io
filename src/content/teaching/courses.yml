@@ -13,15 +13,11 @@ head_ta:
   - title: "Machine Learning"
     instructor: "Dr. Ali Sharifi Zarchi"
     links:
-      - label: "Website"
-        url: "https://www.sharifml.ir/"
       - label: "GitHub"
         url: "https://github.com/SharifiZarchi/Introduction_to_Machine_Learning"
   - title: "Probability & Statistics"
     instructor: "Dr. Ali Sharifi Zarchi"
     links:
-      - label: "Website"
-        url: "https://www.sharifps.ir/"
       - label: "GitHub"
         url: "https://github.com/SharifiZarchi/Probability_Statistics"
   - title: "Probability & Statistics"
@@ -43,6 +39,3 @@ ta_summary:
     - "Data Structures & Algorithms (2×)"
     - "Theory of Computation (2×)"
     - "Discrete Structures"
-
-service:
-  - "Member, Iranian National Artificial Intelligence Committee."
