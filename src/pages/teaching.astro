@@ -8,7 +8,7 @@ import yaml from 'yaml';
 const config = getConfig();
 if (!config.pages.teaching) return Astro.redirect('/404');
 
-let teaching: any = { head_ta: [], ta_summary: { courses: [] }, service: [] };
+let teaching: any = { head_ta: [], ta_summary: { courses: [] } };
 try {
   const coursesPath = path.resolve(process.cwd(), 'src/content/teaching/courses.yml');
   teaching = yaml.parse(fs.readFileSync(coursesPath, 'utf-8'));
@@ -65,19 +65,4 @@ try {
     </div>
   </section>
 
-  {teaching.service?.length > 0 && (
-    <section class="animate-on-scroll">
-      <h2 class="text-xl font-semibold mb-6 flex items-center gap-2">
-        <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        Service
-      </h2>
-      <div class="space-y-3">
-        {teaching.service.map((item: string) => (
-          <div class="p-5 rounded-xl bg-[var(--color-card-bg)] border border-[var(--color-border)] card-hover">
-            <p class="text-[var(--color-text-secondary)]">{item}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  )}
 </BaseLayout>
