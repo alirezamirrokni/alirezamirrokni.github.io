@@ -11,8 +11,16 @@ try {
   const bibPath = path.resolve(process.cwd(), 'src/content/publications', config.publications.bibtex_file);
   const bibContent = fs.readFileSync(bibPath, 'utf-8');
   const allPubs = parseBibTeX(bibContent);
-  selectedPubs = allPubs.filter(p => p.selected).slice(0, 5);
-  if (selectedPubs.length === 0) selectedPubs = allPubs.slice(0, 5);
+  const featured = allPubs.filter(p => p.selected);
+  const ordered = featured.length > 0 ? featured : allPubs;
+  const budgetIndex = ordered.findIndex(p => p.id === 'bateni2025budget');
+  const causalIndex = ordered.findIndex(p => p.id === 'izadi2026causal');
+  if (budgetIndex !== -1 && causalIndex !== -1) {
+    const [budgetPaper] = ordered.splice(budgetIndex, 1);
+    const updatedCausalIndex = ordered.findIndex(p => p.id === 'izadi2026causal');
+    ordered.splice(updatedCausalIndex + 1, 0, budgetPaper);
+  }
+  selectedPubs = ordered.slice(0, 5);
 } catch {}
 
 function normalizeName(name: string): string {
